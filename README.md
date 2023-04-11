@@ -1,6 +1,6 @@
 # currency-exchange-api
 
-This is a RESTful API that provides exchange rate information between different currencies. It uses this external [service](https://apilayer.com/marketplace/description/exchangerates_data-api) to get the exchange rates.
+This is a RESTful API that provides exchange rate information between different currencies. It uses this external [service](https://apilayer.com/marketplace/description/exchangerates_data-api) to get the exchange rates. The app contains JUnit test
 
 ## Prerequisites
 * Java 17 or later
