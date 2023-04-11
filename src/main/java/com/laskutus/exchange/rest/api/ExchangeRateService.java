@@ -17,12 +17,11 @@ import okhttp3.Response;
 public class ExchangeRateService {
 
 	private static final String EXCHANGE_API_URL = "https://api.apilayer.com/exchangerates_data/convert";
-	private static final String API_KEY = "BmjrtnvJuAWBPx0ZT6zezGufYCWt7QDj";
 
 	private final OkHttpClient client = new OkHttpClient();
 
 	@Scheduled(fixedDelay = 60000)
-	public Double getExchangeRate(String from, String to) throws IOException {
+	public Double getExchangeRate(String from, String to, String API_KEY) throws IOException {
 		HttpUrl.Builder urlBuilder = HttpUrl.parse(EXCHANGE_API_URL).newBuilder();
 		urlBuilder.addQueryParameter("from", from);
 		urlBuilder.addQueryParameter("to", to);

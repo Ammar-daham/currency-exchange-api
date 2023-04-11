@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +15,9 @@ public class ExchangeController {
 
 	@GetMapping("/exchange_amount")
 	public ExchangeResponse getExchangeAmount(@RequestParam String from, @RequestParam String to,
-			@RequestParam(required = false, defaultValue = "0.0") Double amount) throws IOException {
-		Double exchangeRate = exchangeRateService.getExchangeRate(from, to);
+			@RequestParam(required = false, defaultValue = "0.0") Double amount, @RequestHeader("apikey") String apiKey)
+			throws IOException {
+		Double exchangeRate = exchangeRateService.getExchangeRate(from, to, apiKey);
 		System.out.println(exchangeRate);
 		Double toAmount = amount * exchangeRate;
 
